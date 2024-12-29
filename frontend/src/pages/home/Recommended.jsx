@@ -73,7 +73,8 @@ return (
             <BookCard book={book} />
             </SwiperSlide>         
         ))
-        },
+        }
+
     </Swiper>
     </div>
 )

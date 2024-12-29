@@ -94,7 +94,7 @@ const TopSellers = () => {
               <BookCard book={book} />
             </SwiperSlide>         
           ))
-        },
+        }
       </Swiper>
 
     </div>
