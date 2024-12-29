@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { HiOutlineBars3CenterLeft, HiOutlineShoppingCart } from "react-icons/hi2";
+import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineUser, HiOutlineHeart } from "react-icons/hi";
 
@@ -19,7 +19,7 @@ const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     console.log(isDropdownOpen)
 
-    const currentUser = true;
+    const currentUser = false;
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
         <nav className="flex justify-between items-center">
@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="flex items-center md:gap-16 gap-4">
                 {/* Logo */}
                 <Link to="/">
-                <HiOutlineBars3CenterLeft className="size-6"/>
+                    <img src="/fav-icon.png" alt="Bookstore" className="h-10" />
                 </Link>
 
                 {/* Search bar */}
