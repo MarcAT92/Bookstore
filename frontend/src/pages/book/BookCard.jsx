@@ -1,44 +1,42 @@
-import React from 'react'
+import React from 'react';
 import { FiShoppingCart } from "react-icons/fi";
 import { getImgUrl } from '../../utils/getImgUrl';
 import { Link } from 'react-router-dom';
 
-const BookCard = ({book}) => {
+const BookCard = ({ book }) => {
   return (
-    <div className=" rounded-lg transition-shadow duration-300">
-  <div
-    className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4"
-  >
-    <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
-      <Link to={`/books/${book._id}`}>
-        <img
-          src={`${getImgUrl(book?.coverImage)}`}
-          alt=""
-          className="w-full bg-cover p-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-200"
-        />
+    <div className="book-card rounded-lg shadow-md transition-shadow duration-300 overflow-hidden">
+      <Link to={`/books/${book._id}`} className="flex flex-col sm:flex-row gap-4">
+        {/* Image section */}
+        <div className="flex-shrink-0 border rounded-md overflow-hidden">
+          <img
+            src={`${getImgUrl(book?.coverImage)}`}
+            alt={book?.title} // Improved alt text for accessibility
+            className="w-full h-64 object-cover transition-transform duration-200 hover:scale-105 rounded-md"
+          />
+        </div>
+
+        {/* Text section */}
+        <div className="flex flex-col justify-between p-4">
+          <h3 className="text-lg font-semibold hover:text-blue-600 mb-2">
+            {book?.title}
+          </h3>
+          <p className="text-gray-600 mb-2 line-clamp-3">
+            {book?.description.length > 80 ? `${book.description.slice(0, 80)}...` : book.description}
+          </p>
+          <p className="font-medium mb-4">
+            ${book?.newPrice} <span className="line-through font-normal ml-2">${book?.oldPrice}</span>
+          </p>
+          <div className="flex justify-center mt-auto"> 
+            <button className="btn-primary px-4 py-2 flex items-center gap-1 transition-colors duration-200">
+              <FiShoppingCart />
+              <span>Add to Cart</span>
+            </button>
+          </div>
+        </div>
       </Link>
     </div>
-
-    <div>
-        <Link to={`/books/${book._id}`}>
-            <h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
-            {book?.title}
-            </h3>
-        </Link>
-        <p className="text-gray-600 mb-5">
-        {book?.description.length > 80 ? `${book.description.slice(0, 80)}...` : book.description}
-        </p>
-        <p className="font-medium mb-5">
-           ${book?.newPrice} <span className="line-through font-normal ml-2">${book?.oldPrice}</span>
-        </p>
-      <button className="btn-primary px-6 space-x-1 flex items-center gap-1 ">
-        <FiShoppingCart className="" />
-        <span>Add to Cart</span>
-      </button>
-    </div>
-  </div>
-</div>
-  )
+  );
 }
 
-export default BookCard
+export default BookCard;

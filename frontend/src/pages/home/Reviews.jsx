@@ -67,11 +67,11 @@ const Reviews = () => {
             spaceBetween: 20,
         },
         768: {
-            slidesPerView: 1,
-            spaceBetween: 40,
+            slidesPerView: 1.2,
+            spaceBetween: 30,
         },
         853: {
-            slidesPerView: 1,
+            slidesPerView: 1.7,
             spaceBetween: 40,
         },
         1024: {

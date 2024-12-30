@@ -52,13 +52,13 @@ const TopSellers = () => {
         mousewheel={true}
         keyboard={true}
         breakpoints={{
-          640: {
+          268: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
+            slidesPerView: 1.2,
+            spaceBetween: 30,
           },
           853: {
             slidesPerView: 1.7,
@@ -90,7 +90,7 @@ const TopSellers = () => {
       >
         {
           filteredBooks.length > 0 && filteredBooks.map((book, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide className='mb-8' key={index}>
               <BookCard book={book} />
             </SwiperSlide>         
           ))
